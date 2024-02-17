@@ -1,11 +1,17 @@
 package BankAccount;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Account> accounts = new ArrayList<>();
+        import java.util.Scanner;
+        Scanner myVar = new Scanner(System.in);
+        System.out.println(myVar.nextLine());
+
+       /* ArrayList<Account> accounts = new ArrayList<>();
+
 
         Account account1 = new Account(101, 1000, 0.05);
         Account account2 = new Account(102, 2000, 0.03);
@@ -30,7 +36,7 @@ public class Main {
             for (Transaction transaction : account.getTransactions()) {
                 System.out.println(transaction);
             }
-            System.out.println();
+            System.out.println();*/
         }
     }
 }

@@ -1,18 +1,21 @@
 package BankAccount;
 
 import java.util.*;
+
+
 public class Client {
-    private int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    private int clientID;
     private String name;
+    private String phone;
+    private ArrayList<Account> accounts;
+
+    public int getClientID() {
+        return clientID;
+    }
+
+    public void setClientID(int clientID) {
+        this.clientID = clientID;
+    }
 
     public String getName() {
         return name;
@@ -22,8 +25,6 @@ public class Client {
         this.name = name;
     }
 
-    private String phone;
-
     public String getPhone() {
         return phone;
     }
@@ -32,33 +33,38 @@ public class Client {
         this.phone = phone;
     }
 
-    private ArrayList<Account> accounts;
 
-
-    public Client(int id, String name, String phone){
-        this.id = id;
+    public Client(int clientID, String name, String phone){
+        this.clientID = clientID;
         this.name = name;
         this.phone = phone;
-
-        accounts = new ArrayList<Account>();
+        this.accounts = new ArrayList<Account>();
     }
-    public boolean addAccount(Account account){
+    public void addAccount(Account account) {
         accounts.add(account);
-        return true;
     }
-    public boolean removeAccount(int accountID) {
-        java.util.Iterator<Account> iterator = accounts.iterator();
-        while (iterator.hasNext()) {
-            Account account = iterator.next();
-            if (account.getId() == accountID) {
-                iterator.remove();
-                return true;
-            }
-        }
-        return false;
+
+    public void removeAccount(Account account) {
+        accounts.remove(account);
     }
+
+//    public boolean addAccount(Account account){
+//        accounts.add(account);
+//        return true;
+//    }
+//    public boolean removeAccount(int accountID) {
+//        java.util.Iterator<Account> iterator = accounts.iterator();
+//        while (iterator.hasNext()) {
+//            Account account = iterator.next();
+//            if (account.getId() == accountID) {
+//                iterator.remove();
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
     public String toString(){
-        String S = this.id+" "+this.phone+" "+this.name+"/n";
+        String S = this.clientID +" "+this.phone+" "+this.name+"/n";
         for (Account account : accounts){
             S += account.toString()+"/n";
         }
