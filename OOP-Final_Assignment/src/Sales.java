@@ -17,4 +17,8 @@ public class Sales {
             System.out.println(book);
         }
     }
+
+    public List<Book> getSalesHistory() {
+        return salesHistory;
+    }
 }
