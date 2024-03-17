@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Inventory {
-    private List<Book> books;
+    private ArrayList<Book> books;
 
     public Inventory() {
         this.books = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Inventory {
 
     public void displayBooks() {
         for (Book book : books) {
-            System.out.println(book);
+            System.out.println( "\n" + book);
         }
     }
 
