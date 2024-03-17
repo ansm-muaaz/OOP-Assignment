@@ -1,6 +1,7 @@
 import java.util.*;
 
-public class Inventory {
+
+class Inventory {
     private ArrayList<Book> books;
 
     public Inventory() {
@@ -11,25 +12,37 @@ public class Inventory {
         books.add(book);
     }
 
-    public void updateQuantity(int bookID, int quantity) {
+    public void updateQuantity(int productID, int quantity) {
         for (Book book : books) {
-            if (book.getBookID() == bookID) {
+            if (book.getProductID() == productID) {
                 book.setQuantity(quantity);
                 return;
             }
         }
-        System.out.println("Book with ID " + bookID + " not found.");
+        System.out.println("Book with ID " + productID + " not found.");
     }
 
     public void displayBooks() {
-        for (Book book : books) {
-            System.out.println( "\n" + book);
+        if (books.isEmpty()) {
+            System.out.println("Inventory is empty.");
+            return;
         }
+
+        // Print table header
+        System.out.println("---------------------------------------------------------------");
+        System.out.printf("| %-8s | %-30s | %-20s | %-8s | %-8s |\n", "Book ID", "Title", "Author", "Price", "Quantity");
+        System.out.println("---------------------------------------------------------------");
+
+        // Print each book information
+        for (Book book : books) {
+            System.out.printf("| %-8d | %-30s | %-20s | %-8.2f | %-8d |\n", book.getProductID(), book.getTitle(), book.getAuthor(), book.getPrice(), book.getQuantity());
+        }
+
+        // Print table footer
+        System.out.println("---------------------------------------------------------------");
     }
 
-    public List<Book> getBooks() {
+    public ArrayList<Book> getBooks() {
         return books;
     }
-
-
 }

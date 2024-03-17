@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-import java.util.List;
 
-public class Sales {
-    private List<Book> salesHistory;
+class Sales {
+    private ArrayList<Book> salesHistory;
 
     public Sales() {
         this.salesHistory = new ArrayList<>();
@@ -13,12 +12,26 @@ public class Sales {
     }
 
     public void displaySalesHistory() {
-        for (Book book : salesHistory) {
-            System.out.println(book);
+        if (salesHistory.isEmpty()) {
+            System.out.println("Sales history is empty.");
+            return;
         }
+
+        // Print table header
+        System.out.println("---------------------------------------------------------------");
+        System.out.printf("| %-8s | %-30s | %-20s | %-8s | %-8s |\n", "Book ID", "Title", "Author", "Price", "Quantity");
+        System.out.println("---------------------------------------------------------------");
+
+        // Print each sale information
+        for (Book sale : salesHistory) {
+            System.out.printf("| %-8d | %-30s | %-20s | %-8.2f | %-8d |\n", sale.getProductID(), sale.getTitle(), sale.getAuthor(), sale.getPrice(), sale.getQuantity());
+        }
+
+        // Print table footer
+        System.out.println("---------------------------------------------------------------");
     }
 
-    public List<Book> getSalesHistory() {
+    public ArrayList<Book> getSalesHistory() {
         return salesHistory;
     }
 }
