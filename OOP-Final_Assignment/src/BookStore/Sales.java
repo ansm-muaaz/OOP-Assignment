@@ -1,4 +1,4 @@
-package com.oopfinal;
+package BookStore;
 import java.util.ArrayList;
 
 class Sales {

@@ -1,4 +1,4 @@
-package com.oopfinal;
+package BookStore;
 class Book extends Product {
     private String author;
 

@@ -1,4 +1,4 @@
-package com.oopfinal;
+package BookStore;
 public class Customer {
 
     private int customerID;
