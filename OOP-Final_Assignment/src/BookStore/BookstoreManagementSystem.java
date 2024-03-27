@@ -1,24 +1,29 @@
 package BookStore;
-import java.io.*;
+import java.io.*; // importing IO class for Input/output exception handling
 import java.util.Scanner;
 
 
 public class BookstoreManagementSystem {
+    // reading csv files and storing constant stores without requiring instances
     private static final String INVENTORY_FILE = "inventory.csv";
     private static final String SALES_FILE = "sales.csv";
     private static final String CUSTOMER_FILE = "customers.csv";
 
+    // instances of different clases as attributes of BookStoreManagement
     private Inventory inventory;
     private Sales sales;
     private Customer customer;
 
+    // default constructor
     public BookstoreManagementSystem() {
         this.inventory = new Inventory();
         this.sales = new Sales();
         this.customer = new Customer();
     }
 
+    // method to load inventory
     public void loadInventory() {
+        // try-catch block for exception handling
         try (BufferedReader reader = new BufferedReader(new FileReader(INVENTORY_FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -35,6 +40,7 @@ public class BookstoreManagementSystem {
         }
     }
 
+    // method to save change in inventory
     public void saveInventory() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(INVENTORY_FILE))) {
             for (Book book : inventory.getBooks()) {
@@ -44,7 +50,7 @@ public class BookstoreManagementSystem {
             System.out.println("Error saving inventory: " + e.getMessage());
         }
     }
-
+    // method to sales history
     public void loadSalesHistory() {
         try (BufferedReader reader = new BufferedReader(new FileReader(SALES_FILE))) {
             String line;
@@ -62,6 +68,8 @@ public class BookstoreManagementSystem {
         }
     }
 
+    // method to save sales history
+
     public void saveSalesHistory() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(SALES_FILE))) {
             for (Book sale : sales.getSalesHistory()) {
@@ -72,6 +80,7 @@ public class BookstoreManagementSystem {
         }
     }
 
+    // saving customer history
     public void saveCustomerInfo() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(CUSTOMER_FILE))) {
             writer.println(customer.getCustomerID() + "," + customer.getName() + "," + customer.getEmail());
@@ -80,6 +89,7 @@ public class BookstoreManagementSystem {
         }
     }
 
+    // loading customer info
     public void loadCustomerInfo() {
         try (BufferedReader reader = new BufferedReader(new FileReader(CUSTOMER_FILE))) {
             String line;
@@ -97,11 +107,11 @@ public class BookstoreManagementSystem {
         }
     }
 
+    // processing sale
     public void processSale(int productID, int quantity) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Customer ID: ");
         int customerID = Integer.parseInt(scanner.nextLine());
-//        scanner.nextLine(); // Consume newline
         System.out.print("Enter Customer Name: ");
         String name = scanner.nextLine();
         System.out.print("Enter Customer Email: ");
@@ -130,7 +140,7 @@ public class BookstoreManagementSystem {
         } else {
             System.out.println("Book with ID " + productID + " not found in inventory.");
         }
-//        scanner.close();
+
     }
 
     // Getters and setters for Inventory

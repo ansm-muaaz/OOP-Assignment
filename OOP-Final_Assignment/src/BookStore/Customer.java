@@ -1,13 +1,15 @@
 package BookStore;
 public class Customer {
 
+    // instance variables for Customer class
     private int customerID;
     private String name;
     private String email;
 
+    // default constructor
     public Customer() {
     }
-
+    // parameterized constructor
     public Customer(int customerID, String name, String email) {
         this.customerID = customerID;
         this.name = name;

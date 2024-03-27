@@ -1,10 +1,14 @@
 package BookStore;
+
+// a general class for product
 class Product {
+    // product attributes
     private int productID;
     private String title;
     private double price;
     private int quantity;
 
+    //constructer
     public Product(int productID, String title, double price, int quantity) {
         this.productID = productID;
         this.title = title;
