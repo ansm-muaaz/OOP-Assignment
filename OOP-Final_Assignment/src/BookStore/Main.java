@@ -1,3 +1,4 @@
+package com.oopfinal;
 import java.util.Scanner;
 
 public class Main {
@@ -17,28 +18,28 @@ public class Main {
             System.out.println("5. Display sales history");
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            choice = Integer.parseInt(scanner.nextLine());
+//            scanner.nextLine(); // consume newline
             switch (choice) {
                 case 1:
                     System.out.print("Enter Book ID: ");
-                    int id = scanner.nextInt();
-                    scanner.nextLine();
+                    int id = Integer.parseInt(scanner.nextLine());
+//                    scanner.nextLine();
                     System.out.print("Enter Title: ");
                     String title = scanner.nextLine();
                     System.out.print("Enter Author: ");
                     String author = scanner.nextLine();
                     System.out.print("Enter Price: ");
-                    double price = scanner.nextDouble();
+                    double price = Double.parseDouble(scanner.nextLine());
                     System.out.print("Enter Quantity: ");
-                    int quantity = scanner.nextInt();
+                    int quantity = Integer.parseInt(scanner.nextLine());
                     system.getInventory().addBook(new Book(id, title, author, price, quantity));
                     break;
                 case 2:
                     System.out.print("Enter Book ID: ");
-                    int bookID = scanner.nextInt();
+                    int bookID = Integer.parseInt(scanner.nextLine());
                     System.out.print("Enter New Quantity: ");
-                    int newQuantity = scanner.nextInt();
+                    int newQuantity = Integer.parseInt(scanner.nextLine());
                     system.getInventory().updateQuantity(bookID, newQuantity);
                     break;
                 case 3:
@@ -46,9 +47,9 @@ public class Main {
                     break;
                 case 4:
                     System.out.print("Enter Book ID: ");
-                    int saleBookID = scanner.nextInt();
+                    int saleBookID = Integer.parseInt(scanner.nextLine());
                     System.out.print("Enter Quantity Sold: ");
-                    int saleQuantity = scanner.nextInt();
+                    int saleQuantity = Integer.parseInt(scanner.nextLine());
                     system.processSale(saleBookID, saleQuantity);
                     system.saveCustomerInfo();
                     break;

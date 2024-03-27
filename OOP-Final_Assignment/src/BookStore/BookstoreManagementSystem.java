@@ -1,3 +1,4 @@
+package com.oopfinal;
 import java.io.*;
 import java.util.Scanner;
 
@@ -99,8 +100,8 @@ public class BookstoreManagementSystem {
     public void processSale(int productID, int quantity) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Customer ID: ");
-        int customerID = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        int customerID = Integer.parseInt(scanner.nextLine());
+//        scanner.nextLine(); // Consume newline
         System.out.print("Enter Customer Name: ");
         String name = scanner.nextLine();
         System.out.print("Enter Customer Email: ");
@@ -129,7 +130,7 @@ public class BookstoreManagementSystem {
         } else {
             System.out.println("Book with ID " + productID + " not found in inventory.");
         }
-        scanner.close();
+//        scanner.close();
     }
 
     // Getters and setters for Inventory
